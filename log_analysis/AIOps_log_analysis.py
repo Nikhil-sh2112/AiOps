@@ -17,6 +17,15 @@ for log in logs:
     level = parts[2]
     message = parts[3]
     data.append([timestamp, level, message])
+#     data = []: Prepare an empty list to store structured log data.
+# Loop through each line from the log:
+# log.strip(): Removes any whitespace or newline characters.
+# split(" ", 3): Splits the line into four parts (date, time, level, and message), ensuring the message captures all remaining spaces.
+# if len(parts) < 4: If the line doesn't have enough information, skip it.
+# timestamp: Combines date and time as the timestamp.
+# level: Extracts the log level (e.g., INFO, ERROR).
+# message: Extracts the log message.
+# Appends a structured entry [timestamp, level, message] to data.
 
 df = pd.DataFrame(data, columns=["timestamp", "level", "message"])
 
